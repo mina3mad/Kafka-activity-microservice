@@ -1,8 +1,7 @@
 export class ActivityLogRepository {
 
 // Save a new activity log
-// @body {Object} log
-// returns {Promise<ActivityLog>}
+// returns {Promise<string>}
   async save(activityLog) {
     throw new Error("save() must be implemented");
   }
