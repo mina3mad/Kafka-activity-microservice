@@ -3,30 +3,17 @@ version: "3.8"
 services:
   app:
     build: .
-    container_name: activity-logger
+    container_name: user-activity-logger
     ports:
       - "3000:3000"
     env_file:
       - .env
     depends_on:
-      mongo:
-        condition: service_healthy
       kafka:
         condition: service_healthy
     restart: unless-stopped
 
-  mongo:
-    image: mongo:7
-    container_name: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-    healthcheck:
-      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
@@ -66,6 +53,5 @@ services:
       - kafka_data:/var/lib/kafka
 
 volumes:
-  mongo_data:
   zookeeper_data:
   kafka_data:

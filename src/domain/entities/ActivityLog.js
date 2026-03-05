@@ -8,6 +8,5 @@ export class ActivityLog {
     this.userId = userId;
     this.action = action;       // Like => "LOGIN", "PURCHASE", "PAGE_VIEW" ,..etc
     this.metadata = metadata;   // any extra information like (page viewed: "/home")
-    this.processedAt = processedAt;
   }
 }

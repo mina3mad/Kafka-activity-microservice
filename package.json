@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "kafka:list": "docker exec -it kafka kafka-topics --bootstrap-server kafka:9093 --list",
+    "kafka:describe": "docker exec -it kafka kafka-topics --bootstrap-server kafka:9093 --describe --topic",
+    "kafka:create": "docker exec -it kafka kafka-topics --bootstrap-server kafka:9093 --create --topic",
+    "kafka:alter-partitions": "docker exec -it kafka kafka-topics --bootstrap-server kafka:9093 --alter --topic",
+    "kafka:produce": "docker exec -i kafka kafka-console-producer --bootstrap-server kafka:9093 --topic",
+    "kafka:consume": "docker exec -it kafka kafka-console-consumer --bootstrap-server kafka:9093 --topic activity-logs --from-beginning --max-messages 5"
   },
   "type": "module",
   "keywords": [],
@@ -14,6 +21,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "joi": "^18.0.2",
     "kafkajs": "^2.2.4",
     "mongoose": "^9.2.4"
   }

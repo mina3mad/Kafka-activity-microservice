@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const activityLogSchema = new mongoose.Schema(
   {
@@ -14,14 +14,6 @@ const activityLogSchema = new mongoose.Schema(
       enum: ["LOGIN", "LOGOUT", "PAGE_VIEW", "CLICK", "PURCHASE", "SEARCH"],
     },
     metadata: { type: Schema.Types.Mixed, default: {} },
-    // status: {
-    //   type: String,
-    //   required: true,
-    //   index: true,
-    //   enum: ["pending", "processed", "failed"],
-    //   default: "pending",
-    // },
-    processedAt: { type: Date, default: null },
   },
   {
     timestamps: true,
@@ -30,6 +22,7 @@ const activityLogSchema = new mongoose.Schema(
 );
 
 activityLogSchema.index({ userId: 1, createdAt: -1 });
+activityLogSchema.index({ createdAt: -1 });
 
-const ActivityLog = mongoose.model("ActivityLog", activityLogSchema);
-export default ActivityLog;
+const ActivityLogModel = mongoose.model("ActivityLogModel", activityLogSchema);
+export default ActivityLogModel;
