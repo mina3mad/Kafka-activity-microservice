@@ -7,6 +7,8 @@ Event-driven microservice for real-time user activities logging using Node.js, E
 ## Main Goal of this project:
 the main goal is to show how an Event-Driven Architecture can be used to ensure loose coupling between servicies, more scalabilty by adding producers and consumers and real time processing   
 
+
+
 ----------------------------------------------------------------------------------------------------
 
 ## Technologies used:
@@ -15,6 +17,8 @@ MongoDB : for storing logs with indecies.
 Apache Kafka: as message broker system between producer and consumer.
 Docker: for containeraize the application.
 AWS: for hosting the microservice.
+
+
 
 ----------------------------------------------------------------------------------------------------
 
@@ -25,6 +29,8 @@ this service follows Domain-Driven Design principle to keep code organized and m
 -Domain Layer: contains the core business logic such as ActivityLog entity and Repository.
 -Infrastructure Layer: for integration with external systems like Kafka and MongoDb.
 -Presentation Layer / API Layer:exposes REST APIs to create logs and fetch stored logs with pagination and filtering.
+
+
 
 ----------------------------------------------------------------------------------------------------
 
