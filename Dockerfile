@@ -1,5 +1,3 @@
-
-# We use Node 20 Alpine — small and fast
 FROM node:20-alpine
 
 WORKDIR /app
@@ -12,4 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "src/index.js"]
+CMD ["npm", "start"]
